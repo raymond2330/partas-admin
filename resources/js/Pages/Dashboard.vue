@@ -96,7 +96,7 @@ const options = ref({
                     <p>Data Charts</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-4 whitespace-normal overflow-hidden">
                     <!-- Container for the Pie chart -->
                     <div class="bg-[#f0f0f8] text-black p-6 rounded-xl">
                         <legend>Bus Routes</legend>
@@ -106,16 +106,15 @@ const options = ref({
                     </div>
 
                     <!-- Container for Bar graphs (in a row) -->
-                    <div class="flex flex-col md:flex-row md:space-x-4">
+                    <div class="flex flex-col md:flex-row md:space-x-4 ">
                         <div class="bg-[#f0f0f8] text-black p-6 rounded-xl flex-1">
                             <Bar :data="chartData" :options="chartOptions" />
                         </div>
                         <div class="bg-[#f0f0f8] text-black p-6 rounded-xl flex-1">
                             <Bar :data="chartData1" :options="chartOptions" />
                         </div>
-
                     </div>
-                    <div class="stats shadow bg-[#f0f0f8]">
+                    <div class="stats shadow bg-[#f0f0f8] text-black p-6 rounded-xl flex-1">
 
                         <div class="stat place-items-center">
                             <div class="stat-title">Downloads</div>
