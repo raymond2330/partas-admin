@@ -125,14 +125,14 @@ const options = ref({
                         </div> -->
 
                         <div class="stat place-items-center">
-                            <div class="stat-title">Number of busses</div>
+                            <div class="stat-title text-black">Number of Busses</div>
                             <div class="stat-value text-secondary">{{props.busCount}}</div>
                             <!-- <div class="stat-desc text-secondary">↗︎ 40 (2%)</div> -->
                         </div>
 
                         <div class="stat place-items-center">
-                            <div class="stat-title">Total Profits</div>
-                            <div class="stat-value">{{props.price}}</div>
+                            <div class="stat-title text-black">Total Profits</div>
+                            <div class="stat-value text-gray-600">{{props.price}}</div>
                             <!-- <div class="stat-desc">↘︎ 90 (14%)</div> -->
                         </div>
 
