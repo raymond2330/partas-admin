@@ -101,7 +101,7 @@ const options = ref({
                 <div class="grid grid-cols-1 md:grid-cols-1 gap-4 whitespace-normal overflow-hidden">
                     <!-- Container for the Pie chart -->
                     <div class="bg-[#f0f0f8] text-black p-6 rounded-xl">
-                        <legend>Bus Routes</legend>
+                        <legend>Bus Type</legend>
                         <div class="w-full md:w-auto">
                             <Pie :data="data" :options="options" />
                         </div>
