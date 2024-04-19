@@ -70,11 +70,34 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 Create your own branch, then push your own changes in your branch to avoid conflict
 
 
+### Setting up your php, composer, and xampp
+
+First, you need to install xampp. any version you like, but I recommend to use the latest version.
+After that, you can install php, but you need to use the php version that is compatible with the xampp version you downloaded, but xampp already has php when you install it (C:\xampp\php), that's why I asked you to install xampp first.
+And then, you can now install the composer and choose the php from your xampp.
+
+You can now configure the composer.json file and change the php requirement to the version of your php that you're using with composer.
+To check the version of your php:
+```sh
+composer diagnose
+```
+
+After that, you have to make a duplicate of the ".env.example", and rename it to ".env".
+if you'd like to change the name of your database, you can look for "DB_DATABASE=" and modify it.
+You can now start the apache and MySql from the xampp.
+
+You can now follow the set up instructions for below.
+
 **Set up**
 ```sh
 npm i
+```
+```sh
 composer update
 ```
+Go to php.ini file from the php you're currently using (go to C:\xampp\php if you're using php from xampp) and uncomment these lines to avoid or fix the conflicts
+*extension=fileinfo*
+*extension=zip*
 
 **Generate key**
 ```sh
@@ -99,6 +122,8 @@ php artisan db:seed
 **Run project**
 ```sh
 php artisan serve
+```
+```sh
 npm run dev
 ```
 
@@ -122,6 +147,8 @@ php artisan optimize
 **Make model**
 ```sh
 php artisan make:model Status
+```
+```sh
 php artisan make:migration create_status
 ```
 

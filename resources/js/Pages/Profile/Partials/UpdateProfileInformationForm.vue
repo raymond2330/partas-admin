@@ -55,7 +55,7 @@ const form = useForm({
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full text-white"
+                    class="mt-1 block w-full text-black"
                     v-model="form.email"
                     required
                     autocomplete="username"
