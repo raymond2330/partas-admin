@@ -6,6 +6,16 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import vueRecaptcha from 'vue3-recaptcha2';
+import { ref } from 'vue';
+
+const captchaVerified = ref(false);
+
+const onCaptchaVerified = (response) => {
+    if (response) {
+        captchaVerified.value = true;
+    }
+};
 
 defineProps({
     canResetPassword: {
@@ -23,10 +33,22 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
+    if(captchaVerified.value){
+        form.post(route('login'), {
+            onFinish: () => form.reset('password'),
+        });
+    } else{
+        console.error('reCAPTCHA verification failed');
+        alert("reCAPTCHA verification failed");
+    }
 };
+
+// const submit = () => {
+//     form.post(route('login'), {
+//         onFinish: () => form.reset('password'),
+//     });
+// };
+
 </script>
 
 <template>
@@ -74,6 +96,14 @@ const submit = () => {
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="ml-2 text-sm text-white">Remember me</span>
                 </label>
+            </div>
+
+            <div class="pt-4 flex items-center justify-center">
+                <vue-recaptcha
+                    ref="recaptcha"
+                    @verify="onCaptchaVerified"
+                    sitekey="6LcYNTIpAAAAAO2tC14UTQ_wTyOMREUdZXPUjjKR"
+                ></vue-recaptcha>
             </div>
 
             <div class="flex items-center justify-end mt-4">
